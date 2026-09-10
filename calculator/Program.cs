@@ -27,6 +27,17 @@ while (!double.TryParse(Console.ReadLine(), out secondNumber))
 }
 
 
+//check if the second number is zero or not in the division operations
+if (secondNumber == 0 && (operation == "/" || operation == "%"))
+{
+    Console.WriteLine("secondNumber couldn't be Zero, please insert another value");
+    while (!double.TryParse(Console.ReadLine(), out secondNumber) || secondNumber == 0)
+    {
+        Console.WriteLine("secondNumber couldn't be Zero, please insert another value");
+    }
+}
+
+
 switch (operation)
 {
     case "+": result = firstNumber + secondNumber; break;

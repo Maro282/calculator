@@ -18,7 +18,7 @@ do
     operation = Console.ReadLine();
     while (operation != "+" && operation != "-" && operation != "*" && operation != "/" && operation != "%")
     {
-        Console.WriteLine("Invalid operator, please choose  from + - * / %");
+        Console.WriteLine("Invalid operator, please choose  from list [ + - * / % ] ");
         operation = Console.ReadLine();
     }
 
@@ -30,28 +30,17 @@ do
     }
 
 
-<<<<<<< HEAD
-//check if the second number is zero or not in the division operations
-if (secondNumber == 0 && (operation == "/" || operation == "%"))
-{
-    Console.WriteLine("secondNumber couldn't be Zero, please insert another value");
-    while (!double.TryParse(Console.ReadLine(), out secondNumber) || secondNumber == 0)
+    //check if the second number is zero or not in the division operations
+    if (secondNumber == 0 && (operation == "/" || operation == "%"))
     {
         Console.WriteLine("secondNumber couldn't be Zero, please insert another value");
+        while (!double.TryParse(Console.ReadLine(), out secondNumber) || secondNumber == 0)
+        {
+            Console.WriteLine("secondNumber couldn't be Zero or invalid, please insert another value");
+        }
     }
-}
 
 
-switch (operation)
-{
-    case "+": result = firstNumber + secondNumber; break;
-    case "-": result = firstNumber - secondNumber; break;
-    case "*": result = firstNumber * secondNumber; break;
-    case "/": result = firstNumber / secondNumber; break;
-    case "%": result = firstNumber % secondNumber; break;
-    default: result = 0; break;
-}
-=======
     switch (operation)
     {
         case "+": result = firstNumber + secondNumber; break;
@@ -61,7 +50,15 @@ switch (operation)
         case "%": result = firstNumber % secondNumber; break;
         default: result = 0; break;
     }
->>>>>>> feature/reuse-calculator
+    switch (operation)
+    {
+        case "+": result = firstNumber + secondNumber; break;
+        case "-": result = firstNumber - secondNumber; break;
+        case "*": result = firstNumber * secondNumber; break;
+        case "/": result = firstNumber / secondNumber; break;
+        case "%": result = firstNumber % secondNumber; break;
+        default: result = 0; break;
+    }
 
 
     Console.WriteLine($"the result is => {result}");
